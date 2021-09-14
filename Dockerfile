@@ -2,7 +2,7 @@
 FROM node:7-onbuild
 
 # set maintainer
-LABEL maintainer "adebola@semicolon.com"
+LABEL maintainer "adebola@semicolon.africa"
 
 # set a health check
 HEALTHCHECK --interval=5s \
