@@ -14,7 +14,7 @@ node {
 
     stage('Login into Docker Hub') {
 	    
-        sh('docker login -u 88337744666 -p semicolon11 .')
+        sh('docker login -u 88337744666 -p semicolon11')
     }
 
     stage('Push image') {
