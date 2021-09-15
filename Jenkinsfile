@@ -28,4 +28,10 @@ node {
 //                 echo "Trying to Push Docker Build to DockerHub"
 	    sh('docker push 88337744666/node-app:2.0')
     }
+	
+    stage('Deploy Node-app Container ') {
+	    
+        sh('docker run -d -p 8000:8000 node-app:2.0')
+    }
+
 }
