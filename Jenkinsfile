@@ -8,9 +8,8 @@ node {
     }
 
     stage('Build image') {
-        /* This builds the actual image */
-
-        app = docker.build("88337744666/node-app")
+	    
+       sh('docker build -t testapp:1.0 .')
     }
 
     stage('Test image') {
