@@ -9,14 +9,12 @@ node {
 
     stage('Build image') {
 	    
-       sh('docker build -t testapp:1.0 .')
+       sh('docker build -t 88337744666/node-app:2.0 .')
     }
 
-    stage('Test image') {
-        
-        app.inside {
-            echo "Tests passed"
-        }
+    stage('Login into Docker Hub') {
+	    
+        sh('docker login -u 88337744666 -p semicolon11 .')
     }
 
     stage('Push image') {
