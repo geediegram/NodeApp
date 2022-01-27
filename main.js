@@ -4,7 +4,7 @@ var http = require('http');
 // configure our HTTP server
 var server = http.createServer(function (request, response) {
   response.writeHead(200, {"Content-Type": "text/plain"});
-  response.end("Hello NodeApp!! Node app version 3. BESSIE TEST OF TIME this is a test code \n");
+  response.end("Hello NodeApp!! Node app version 3. BESSIE TEST OF TIME this is a test code v2 of node app \n");
 });
 
 // listen on localhost:8000
