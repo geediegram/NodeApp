@@ -1,10 +1,14 @@
+
 node {
+
     def app
 
-    stage('Clone repository') {
+    stage('Clone Repository') {
         /* Cloning the Repository to our Workspace */
 
-        checkout scm
+        git credentialsId: 'github', 
+        url: 'https://github.com/Adebola-Semicolon/NodeApp.git'
+        
     }
 
     stage('Build image') {
@@ -13,8 +17,10 @@ node {
     }
 
     stage('Login into Docker Hub') {
+        withCredentials([string(credentialsId: 'docker-hub-pwd', variable: 'docker-Pwd')]) {
+        }
 	    
-        sh('docker login -u 88337744666 -p semicolon11')
+        sh("docker login -u 88337744666 -p ${docker-Pwd}")
     }
 
     stage('Push image') {
@@ -29,7 +35,7 @@ node {
 	    sh('docker push 88337744666/node-app:2.0')
     }
 	
-    stage('Deploy Node-app Container ') {
+    stage('Deploy Node-App Container ') {
 	    
         sh('docker run -d -p 8000:8000 88337744666/node-app:2.0')
     }
